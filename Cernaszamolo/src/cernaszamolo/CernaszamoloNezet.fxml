@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="250.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cernaszamolo.CernaszamoloNezetController">
    <children>
       <Pane id="basicPane" fx:id="basicPane" prefHeight="250.0" prefWidth="320.0">
@@ -24,7 +23,7 @@
             <TextField id="oldalszamBe" fx:id="oldalszamBe" layoutX="88.0" layoutY="74.0" prefHeight="25.0" prefWidth="58.0" />
             <TextField id="irkakilovesBe" fx:id="irkakilovesBe" layoutX="237.0" layoutY="74.0" prefHeight="25.0" prefWidth="58.0" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#006e0f63" height="40.0" layoutX="35.0" layoutY="113.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="250.0" />
-            <Label alignment="CENTER" layoutX="40.0" layoutY="118.0" prefHeight="30.0" prefWidth="240.0" text="14x16 + 1x20 + 1x16" textAlignment="CENTER" textFill="#006e10">
+            <Label id="eredmenyText" fx:id="eredmenyText" alignment="CENTER" layoutX="40.0" layoutY="118.0" prefHeight="30.0" prefWidth="240.0" text="14x16 + 1x20 + 1x16" textAlignment="CENTER" textFill="#006e10">
                <font>
                   <Font size="20.0" />
                </font>
@@ -39,7 +38,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button id="szamolGomb" fx:id="szamolGomb" alignment="CENTER" layoutX="60.0" layoutY="196.0" minWidth="90.0" mnemonicParsing="false" text="Számol">
+            <Button id="szamolGomb" fx:id="szamolGomb" alignment="CENTER" layoutX="60.0" layoutY="196.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Számol">
                <font>
                   <Font size="15.0" />
                </font>
@@ -51,6 +50,16 @@
             </Button>
          </children>
       </Pane>
-      <Pane id="alertPane" fx:id="alertPane" prefHeight="250.0" prefWidth="320.0" visible="false" />
+      <Pane id="alertPane" fx:id="alertPane" prefHeight="250.0" prefWidth="320.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff000098" height="109.0" layoutX="60.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+            <Label id="alertText" fx:id="alertText" alignment="CENTER" layoutX="86.0" layoutY="112.0" text="Nem számot adtál meg!" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button id="alertGomb" fx:id="alertGomb" alignment="CENTER" layoutX="135.0" layoutY="144.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleAlertButton" text="OK" textAlignment="CENTER" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

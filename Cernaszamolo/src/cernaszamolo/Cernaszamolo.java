@@ -15,6 +15,7 @@ public class Cernaszamolo extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.setTitle("Prime Rate Kft. | Cérnaszámoló");
         stage.show();
     }
