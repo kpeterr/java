@@ -11,8 +11,7 @@ public class CernaszamoloDos {
         System.out.println("A Cérnszámoló program elindult!");
         System.out.println("-------------------------------");
          
-        BufferedReader olvaso =  
-                   new BufferedReader(new InputStreamReader(System.in)); 
+        BufferedReader olvaso = new BufferedReader(new InputStreamReader(System.in)); 
         
         int oldalszam;
         
