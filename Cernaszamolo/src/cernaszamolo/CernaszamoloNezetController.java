@@ -25,6 +25,9 @@ public class CernaszamoloNezetController implements Initializable {
     private Label eredmenyText;
     
     @FXML
+    private Label elsoEgeszOldalak;
+    
+    @FXML
     private Label alertText;
     
     @FXML
@@ -62,7 +65,17 @@ public class CernaszamoloNezetController implements Initializable {
             int maradek = (oldalszam - irkakiloves) % irkakiloves;
             if(maradek == 0){
                 eredmenyText.setText(String.valueOf(oldalszam / irkakiloves) + "x" + String.valueOf(irkakiloves));
+                elsoEgeszOldalak.setText(String.valueOf(oldalszam / irkakiloves * irkakiloves));
+            }else if (maradek == 4) {
+                int koztes = irkakiloves;
+                eredmenyText.setText(String.valueOf(oldalszam / irkakiloves - 2) + "x" + String.valueOf(irkakiloves) + " + 1x" + String.valueOf(koztes + 4) + " + 1x" + String.valueOf(irkakiloves));
+                elsoEgeszOldalak.setText(String.valueOf((oldalszam / irkakiloves - 2) * irkakiloves));
+            }else {
+                eredmenyText.setText(String.valueOf(oldalszam / irkakiloves - 1) + "x" + String.valueOf(irkakiloves) + " + 1x" + String.valueOf(maradek) + " + 1x" + String.valueOf(irkakiloves));
+                elsoEgeszOldalak.setText(String.valueOf((oldalszam / irkakiloves - 1) * irkakiloves));
             }
+        }else {
+            alert("Az oldalszámnak 4-gyel\noszthatónak kell lennie!");
         }
     }
     
@@ -71,6 +84,15 @@ public class CernaszamoloNezetController implements Initializable {
         basicPane.setOpacity(0);
         alertPane.setVisible(true);
         alertText.setText(text);
+        oldalszamBe.requestFocus();
+    }
+    
+    @FXML
+    private void handleTorolGomb(ActionEvent event){
+        oldalszamBe.setText("");
+        irkakilovesBe.setText("");
+        eredmenyText.setText("");
+        //elsoEgeszOldalak.setText("");
     }
     
     @Override

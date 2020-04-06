@@ -43,7 +43,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button id="torolGomb" fx:id="torolGomb" alignment="CENTER" layoutX="170.0" layoutY="196.0" minWidth="90.0" mnemonicParsing="false" text="Töröl">
+            <Button id="torolGomb" fx:id="torolGomb" alignment="CENTER" layoutX="170.0" layoutY="196.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleTorolGomb" text="Töröl">
                <font>
                   <Font size="15.0" />
                </font>
@@ -53,7 +53,7 @@
       <Pane id="alertPane" fx:id="alertPane" prefHeight="250.0" prefWidth="320.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff000098" height="109.0" layoutX="60.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-            <Label id="alertText" fx:id="alertText" alignment="CENTER" layoutX="86.0" layoutY="112.0" text="Nem számot adtál meg!" textAlignment="CENTER">
+            <Label id="alertText" fx:id="alertText" alignment="CENTER" layoutX="86.0" layoutY="93.0" text="Nem számot adtál meg!" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
