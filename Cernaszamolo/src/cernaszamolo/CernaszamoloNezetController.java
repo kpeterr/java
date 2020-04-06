@@ -5,15 +5,15 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 public class CernaszamoloNezetController implements Initializable {
     
-    @FXML
-    private Button alertButton;
+    // Beolvasott számok változói
+    private int oldalszam;
+    private int irkakiloves;
     
     @FXML
     private Pane basicPane;
@@ -28,10 +28,10 @@ public class CernaszamoloNezetController implements Initializable {
     private Label alertText;
     
     @FXML
-    private TextField input1;
+    private TextField oldalszamBe;
     
     @FXML
-    private TextField input2;
+    private TextField irkakilovesBe;
     
     @FXML
     private void handleAlertButton(ActionEvent event) {
@@ -43,8 +43,34 @@ public class CernaszamoloNezetController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        szamol();
+    }
+    
+    private void szamol(){
+        
+        // Eltároljuk a beérkező számokat
+        // Számok-e egyáltalán?
+        try {
+            oldalszam = Integer.parseInt(oldalszamBe.getText());
+            irkakiloves = Integer.parseInt(irkakilovesBe.getText());
+        } catch (Exception e) {
+            alert("Számot kell megadnod!");
+            //return;
+        }
+        
+        if(oldalszam % 4 == 0){
+            int maradek = (oldalszam - irkakiloves) % irkakiloves;
+            if(maradek == 0){
+                eredmenyText.setText(String.valueOf(oldalszam / irkakiloves) + "x" + String.valueOf(irkakiloves));
+            }
+        }
+    }
+    
+    private void alert(String text){
+        basicPane.setDisable(true);
+        basicPane.setOpacity(0);
+        alertPane.setVisible(true);
+        alertText.setText(text);
     }
     
     @Override
